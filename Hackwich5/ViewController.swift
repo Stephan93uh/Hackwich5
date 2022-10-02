@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var bottomLabel: UILabel!
     
+    @IBOutlet weak var buttonLabel: UIButton!
+    
     var currentIndex = 0
     
     var favoriteFoodsArray = ["Acai Bowl", "Empanada", "Pao de Queijo", "Malasada", "Savory stuff with pesto, loads of pesto"]
@@ -25,6 +27,16 @@ class ViewController: UIViewController {
         self.bottomLabel.text = favoriteFoodsArray[currentIndex]
     }
 
-
+    @IBAction func buttonPressed(_ sender: Any) {
+        if self.currentIndex < self.favoriteFoodsArray.count {
+            self.bottomLabel.text = favoriteFoodsArray[currentIndex]
+            buttonLabel.setTitle("Next", for:UIControl.State.normal)
+            currentIndex += 1
+        } else {
+            print("button has been disabled")
+            (buttonLabel!).isEnabled=false
+        }
+    }
+    
 }
 
