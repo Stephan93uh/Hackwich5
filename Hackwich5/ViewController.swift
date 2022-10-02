@@ -25,18 +25,35 @@ class ViewController: UIViewController {
         self.topLabel.text = "My Favorite Foods"
         
         self.bottomLabel.text = favoriteFoodsArray[currentIndex]
+        
+        //Trying somethign out
+        buttonLabel.setTitle("Next", for:UIControl.State.normal)
+
     }
 
     @IBAction func buttonPressed(_ sender: Any) {
-        if self.currentIndex < self.favoriteFoodsArray.count {
+        /*if self.currentIndex < self.favoriteFoodsArray.count {
             self.bottomLabel.text = favoriteFoodsArray[currentIndex]
             buttonLabel.setTitle("Next", for:UIControl.State.normal)
             currentIndex += 1
         } else {
             print("button has been disabled")
             (buttonLabel!).isEnabled=false
+        }*/
+        
+        //Trying something out
+        if currentIndex < favoriteFoodsArray.count-2 {
+            currentIndex += 1
+            self.bottomLabel.text = favoriteFoodsArray[currentIndex]
+        } else if currentIndex < favoriteFoodsArray.count-1 {
+            currentIndex += 1
+            self.bottomLabel.text = favoriteFoodsArray[currentIndex]
+            buttonLabel.setTitle("Again", for:UIControl.State.normal)
+        } else {
+            currentIndex = 0
+            self.bottomLabel.text = favoriteFoodsArray[currentIndex]
+            buttonLabel.setTitle("Next", for:UIControl.State.normal)
         }
     }
     
 }
-
